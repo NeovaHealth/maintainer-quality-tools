@@ -162,6 +162,8 @@ beta_msgs = get_beta_msgs()
 # it defaults to the standard configuration file.
 pylint_config_file = os.environ.get('PYLINT_CONFIG_FILE',
                                     'travis_run_pylint.cfg')
+pylint_pr_config_file = os.environ.get('PYLINT_PR_CONFIG_FILE',
+                                       'travis_run_pylint_pr.cfg')
 pylint_rcfile = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     'cfg',
@@ -173,7 +175,7 @@ count_errors = run_pylint.main([
 pylint_rcfile_pr = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     'cfg',
-    "travis_run_pylint_pr.cfg")
+    pylint_pr_config_file)
 
 
 if is_pull_request and branch_base and git_work_dir:
