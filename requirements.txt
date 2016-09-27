@@ -2,4 +2,4 @@ simplejson
 pyserial
 pyyaml
 coveralls
-
+isort
