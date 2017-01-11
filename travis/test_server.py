@@ -288,6 +288,8 @@ def main(argv=None):
     unbuffer = str2bool(os.environ.get('UNBUFFER', True))
     data_dir = os.environ.get("DATA_DIR", '~/data_dir')
     test_enable = str2bool(os.environ.get('TEST_ENABLE', True))
+    dbtemplate = os.environ.get('MQT_TEMPLATE_DB', 'openerp_template')
+    database = os.environ.get('MQT_TEST_DB', 'openerp_test')
     if not odoo_version:
         # For backward compatibility, take version from parameter
         # if it's not globally set
@@ -330,7 +332,6 @@ def main(argv=None):
     else:
         print("Modules to test: %s" % tested_addons)
     # setup the base module without running the tests
-    dbtemplate = "openerp_template"
     preinstall_modules = get_test_dependencies(addons_path,
                                                tested_addons_list)
     preinstall_modules = list(set(preinstall_modules) - set(get_modules(
@@ -341,8 +342,6 @@ def main(argv=None):
                  unbuffer, server_options)
 
     # Running tests
-    database = "openerp_test"
-
     cmd_odoo_test = ["coverage", "run",
                      "%s/%s" % (server_path, script_name),
                      "-d", database,
