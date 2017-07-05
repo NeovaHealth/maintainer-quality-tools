@@ -3,3 +3,8 @@ pyserial
 pyyaml
 coveralls
 isort
+
+# transifex requirements
+polib
+slumber
+transifex-client
