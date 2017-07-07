@@ -2,6 +2,7 @@ simplejson
 pyserial
 pyyaml
 coveralls
+unittest2
 isort
 
 # transifex requirements
