@@ -10,7 +10,6 @@ fi
 if [ $GO_SCM_CLIENT_MODULES_PR_ID != $BASE_BRANCH ] ; then
     BRANCH=$GO_SCM_CLIENT_MODULES_PR_ID
 fi
-cd ..
 cd ../nhclinical
 git fetch
 git checkout $BRANCH || true
