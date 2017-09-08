@@ -1,12 +1,15 @@
 #!/bin/bash
 BASE_BRANCH="develop"
 BRANCH=$BASE_BRANCH
-if [ $GO_SCM_NHCLINICAL_PR_ID != $BASE_BRANCH ] then;
+if [ $GO_SCM_NHCLINICAL_PR_ID != $BASE_BRANCH ] ; then
     BRANCH=$GO_SCM_NHCLINICAL_PR_ID
-if [ $GO_SCM_OPEN_EOBS_PR_ID != $BASE_BRANCH ] then;
+fi
+if [ $GO_SCM_OPEN_EOBS_PR_ID != $BASE_BRANCH ] ; then
     BRANCH=$GO_SCM_OPEN_EOBS_PR_ID
-if [ $GO_SCM_CLIENT_MODULES_PR_ID != $BASE_BRANCH ] then;
+fi
+if [ $GO_SCM_CLIENT_MODULES_PR_ID != $BASE_BRANCH ] ; then
     BRANCH=$GO_SCM_CLIENT_MODULES_PR_ID
+fi
 cd ..
 cd ../nhclinical
 git fetch
