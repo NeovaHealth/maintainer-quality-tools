@@ -6,20 +6,20 @@ create_venv:
 	virtualenv ${root_path}/venv
 
 install_deps:
-	${root_path}/venv/bin/pip install -r ${root_path}/maintainer_quality_tools/requirement.txt
+	${root_path}/venv/bin/pip install -r ../requirement.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/nhclinical/requirement.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/openeobs/requirement.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/client_modules/requirement.txt
 
 flake8:
-	${root_path}/venv/bin/flake8 --config=${root_path}/maintainer-quality-tools/travis/cfg/travis_run_flake8.cfg nhclinical
-	${root_path}/venv/bin/flake8 --config=${root_path}/maintainer-quality-tools/travis/cfg/travis_run_flake8.cfg openeobs
-	${root_path}/venv/bin/flake8 --config=${root_path}/maintainer-quality-tools/travis/cfg/travis_run_flake8.cfg client_modules
+	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/nhclinical
+	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/openeobs
+	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/client_modules
 
 pylint:
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=maintainer-quality-tools/travis/cfg/travis_run_pylint.cfg nhclinical
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=maintainer-quality-tools/travis/cfg/travis_run_pylint.cfg openeobs
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=maintainer-quality-tools/travis/cfg/travis_run_pylint.cfg client_modules
+	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/nhclinical
+	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/openeobs
+	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/client_modules
 
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
