@@ -30,4 +30,4 @@ move_addons_into_dir:
 	/bin/bash -c "find ${root_path}/openeobs -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/client_modules -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 
-.PHONY create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
+.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
