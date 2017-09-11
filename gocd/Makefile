@@ -3,8 +3,7 @@
 all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
 
 create_venv:
-	@cd ${root_path}
-	virtualenv venv
+	virtualenv ${root_path}/venv
 
 install_deps:
 	${root_path}/venv/bin/pip install -r ${root_path}/maintainer_quality_tools/requirement.txt
