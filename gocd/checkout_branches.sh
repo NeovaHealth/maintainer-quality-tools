@@ -20,3 +20,4 @@ cd ../client_modules
 git fetch
 git checkout $BRANCH || true
 cd ..
+echo $BRANCH > version_branch.txt
