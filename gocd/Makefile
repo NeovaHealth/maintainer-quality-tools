@@ -25,6 +25,8 @@ make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
 
 move_addons_into_dir:
+    # Find directories and copy them. The '-regex' test omits subdirectories like '.github' and the '-name' test omits the current directory,
+    # i.e. 'nhclinical' itself is not copied.
 	/bin/bash -c "find ${root_path}/nhclinical -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/openeobs -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/client_modules -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
