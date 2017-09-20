@@ -4,13 +4,13 @@ BRANCH=$BASE_BRANCH
 NHCLINICAL_BRANCH=$(echo $GO_SCM_NHCLINICAL_PR_BRANCH | sed 's/NeovaHealth://')
 OPENEOBS_BRANCH=$(echo $GO_SCM_OPEN_EOBS_PR_BRANCH | sed 's/NeovaHealth://')
 CLIENT_BRANCH=$(echo $GO_SCM_CLIENT_MODULES_PR_BRANCH | sed 's/bjss://')
-if [ $NHCLINICAL_BRANCH != $BASE_BRANCH ] ; then
+if [ "${NHCLINICAL_BRANCH}" != "${BASE_BRANCH}" ] ; then
     BRANCH=$NHCLINICAL_BRANCH
 fi
-if [ $OPENEOBS_BRANCH != $BASE_BRANCH ] ; then
+if [ "${OPENEOBS_BRANCH}" != "${BASE_BRANCH}" ] ; then
     BRANCH=$OPENEOBS_BRANCH
 fi
-if [ $CLIENT_BRANCH != $BASE_BRANCH ] ; then
+if [ "${CLIENT_BRANCH}" != "${BASE_BRANCH}" ] ; then
     BRANCH=$CLIENT_BRANCH
 fi
 cd ../nhclinical
