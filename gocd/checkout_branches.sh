@@ -9,15 +9,15 @@ CLIENT_BRANCH=$(echo $GO_SCM_CLIENT_MODULES_PR_BRANCH | sed 's/bjss://')
 
 NHCLINICAL_HASH=$GO_SCM_NHCLINICAL_LABEL
 cd ../nhclinical
-NHCLINICAL_DATE=$(git show "${NHCLINICAL_HASH}" --format="%at")
+NHCLINICAL_DATE=$(git show "${NHCLINICAL_HASH}" -s --format="%at")
 
 OPENEOBS_HASH=$GO_SCM_OPEN_EOBS_LABEL
 cd ../openeobs
-OPENEOBS_DATE=$(git show "${OPENEOBS_HASH}" --format="%at")
+OPENEOBS_DATE=$(git show "${OPENEOBS_HASH}" -s --format="%at")
 
 CLIENT_HASH=$GO_SCM_CLIENT_MODULES_LABEL
 cd ../client_modules
-CLIENT_DATE=$(git show "${CLIENT_HASH}" --format="%at")
+CLIENT_DATE=$(git show "${CLIENT_HASH}" -s --format="%at")
 
 # Need to then compare all 3 hashes
 if [ ${NHCLINICAL_DATE} -gt ${OPENEOBS_DATE} -a ${NHCLINICAL_DATE} -gt ${CLIENT_DATE} ] ; then
