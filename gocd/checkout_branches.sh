@@ -15,12 +15,12 @@ if [ "${CLIENT_BRANCH}" != "${BASE_BRANCH}" ] ; then
 fi
 cd ../nhclinical
 git fetch
-git checkout $BRANCH || true
+git checkout -f $BRANCH || true
 cd ../openeobs
 git fetch
-git checkout $BRANCH || true
+git checkout -f $BRANCH || true
 cd ../client_modules
 git fetch
-git checkout $BRANCH || true
+git checkout -f $BRANCH || true
 cd ..
 echo $BRANCH > version_branch.txt
