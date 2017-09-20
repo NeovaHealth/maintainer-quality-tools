@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 BASE_BRANCH="develop"
 BRANCH=$BASE_BRANCH
 
@@ -31,12 +30,15 @@ if [ ${CLIENT_DATE} -gt ${NHCLINICAL_DATE} -a ${CLIENT_DATE} -gt ${OPENEOBS_DATE
 fi
 cd ../nhclinical
 git fetch
+git checkout $BASE_BRANCH
 git checkout -f $BRANCH || true
 cd ../openeobs
 git fetch
+git checkout $BASE_BRANCH
 git checkout -f $BRANCH || true
 cd ../client_modules
 git fetch
+git checkout $BASE_BRANCH
 git checkout -f $BRANCH || true
 cd ..
 echo $BRANCH > version_branch.txt
