@@ -23,5 +23,4 @@ cd ../client_modules
 git fetch
 git checkout -f $BRANCH || true
 cd ..
-echo $BRANCH
 echo $BRANCH > version_branch.txt
