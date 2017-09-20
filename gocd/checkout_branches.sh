@@ -19,13 +19,13 @@ cd ../client_modules
 CLIENT_DATE=$(git show "${CLIENT_HASH}" --format="%at")
 
 # Need to then compare all 3 hashes
-if [ ${NHCLINICAL_DATE} -gt ${OPENEOBS_DATE} -a ${NHCLINICAL_DATE} -gt ${CLIENT_DATE} ] ; then
+if [[ ${NHCLINICAL_DATE} -gt ${OPENEOBS_DATE} -a ${NHCLINICAL_DATE} -gt ${CLIENT_DATE} ]] ; then
     BRANCH=$NHCLINICAL_BRANCH
 fi
-if [ ${OPENEOBS_DATE} -gt ${NHCLINICAL_DATE} -a ${OPENEOBS_DATE} -gt ${CLIENT_DATE} ] ; then
+if [[ ${OPENEOBS_DATE} -gt ${NHCLINICAL_DATE} -a ${OPENEOBS_DATE} -gt ${CLIENT_DATE} ]] ; then
     BRANCH=$OPENEOBS_BRANCH
 fi
-if [ ${CLIENT_DATE} -gt ${NHCLINICAL_DATE} -a ${CLIENT_DATE} -gt ${OPENEOBS_DATE} ] ; then
+if [[ ${CLIENT_DATE} -gt ${NHCLINICAL_DATE} -a ${CLIENT_DATE} -gt ${OPENEOBS_DATE} ]] ; then
     BRANCH=$CLIENT_BRANCH
 fi
 cd ../nhclinical
