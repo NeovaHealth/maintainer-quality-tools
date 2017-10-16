@@ -21,6 +21,12 @@ pylint:
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/openeobs
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/client_modules
 
+pylint_all:
+	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/liveobs_addons
+
+flake8_all:
+	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/liveobs_addons
+
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
 
@@ -31,4 +37,4 @@ move_addons_into_dir:
 	/bin/bash -c "find ${root_path}/openeobs -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/client_modules -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 
-.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
+.PHONY: create_venv install_deps flake8 flake8_all pylint pylint_all make_addons_dir move_addons_into_dir
