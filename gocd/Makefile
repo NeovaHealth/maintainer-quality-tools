@@ -22,7 +22,7 @@ pylint:
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/client_modules
 
 pylint_all:
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/liveobs_addons
+	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg -r n --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" ${root_path}/liveobs_addons > ${root_path}/pylint_report.txt
 
 flake8_all:
 	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/liveobs_addons
