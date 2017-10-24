@@ -22,9 +22,10 @@ pylint:
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/client_modules
 
 checkout_branches:
-	# If $BRANCH does not exist script will determine branches from GOCD
-	# environment variables.
-	checkout_branches $BRANCH
+	checkout_branches
+
+checkout_branches_for_release:
+	BRANCH=$(python ../releases/releases/get_latest_version_number.py ../releases/releases.yml) checkout_branches
 
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
