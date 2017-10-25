@@ -4,17 +4,14 @@ root_path=..
 
 all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
 
-print_foobar:
-	cat ${root_path}/version_branch.txt
-
 create_venv:
 	virtualenv ${root_path}/venv
 
 install_deps:
-	${root_path}/venv/bin/pip install -r ../requirements.txt
-	${root_path}/venv/bin/pip install -r ${root_path}/nhclinical/requirements.txt
-	${root_path}/venv/bin/pip install -r ${root_path}/openeobs/requirements.txt
-	${root_path}/venv/bin/pip install -r ${root_path}/client_modules/requirements.txt
+	${root_path}/venv/bin/pip install -r requirements.txt
+	${root_path}/venv/bin/pip install -r ${root_path}/../nhclinical/requirements.txt
+	${root_path}/venv/bin/pip install -r ${root_path}/../openeobs/requirements.txt
+	${root_path}/venv/bin/pip install -r ${root_path}/../client_modules/requirements.txt
 
 flake8:
 	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/nhclinical
