@@ -45,4 +45,9 @@ cd ../BJSS_liveobs_client_modules
 git fetch
 git checkout -f $BRANCH || git checkout $BASE_BRANCH
 cd ..
-echo $BRANCH > version_branch.txt
+
+VERSION_NAME=$BRANCH
+VERSION_NAME+=_
+VERSION_NAME+=$GO_PIPELINE_LABEL
+
+echo $VERSION_NAME > version_branch.txt
