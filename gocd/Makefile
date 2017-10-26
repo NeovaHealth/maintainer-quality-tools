@@ -1,7 +1,5 @@
 #!/usr/bin/make
 
-root_path=..
-
 all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
 
 create_venv:
