@@ -26,9 +26,6 @@ pylint:
 checkout_branches:
 	bash -c ./checkout_branches.sh
 
-checkout_branches_for_release:
-	BRANCH=$(python ../releases/releases/get_latest_version_number.py ../releases/releases.yml) bash -c ./checkout_branches.sh
-
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
 
