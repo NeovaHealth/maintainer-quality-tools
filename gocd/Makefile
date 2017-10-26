@@ -6,7 +6,7 @@ create_venv:
 	virtualenv ${root_path}/venv
 
 install_deps:
-	${root_path}/venv/bin/pip install -r requirements.txt
+	${root_path}/venv/bin/pip install -r ../requirements.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/nhclinical/requirements.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/openeobs/requirements.txt
 	${root_path}/venv/bin/pip install -r ${root_path}/BJSS_liveobs_client_modules/requirements.txt
