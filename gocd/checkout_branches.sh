@@ -17,7 +17,7 @@ if [[ -z "${BRANCH}" ]]
 	OPENEOBS_DATE=$(git show "${OPENEOBS_HASH}" -s --format="%at")
 
 	CLIENT_HASH=$GO_SCM_CLIENT_MODULES_LABEL
-	cd ../client_modules
+	cd ../BJSS_liveobs_client_modules
 	CLIENT_DATE=$(git show "${CLIENT_HASH}" -s --format="%at")
 
 	# Need to then compare all 3 hashes. Which one is the latest?
@@ -41,7 +41,7 @@ git checkout -f $BRANCH || git checkout $BASE_BRANCH
 cd ../openeobs
 git fetch
 git checkout -f $BRANCH || git checkout $BASE_BRANCH
-cd ../client_modules
+cd ../BJSS_liveobs_client_modules
 git fetch
 git checkout -f $BRANCH || git checkout $BASE_BRANCH
 cd ..
