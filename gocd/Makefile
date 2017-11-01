@@ -38,6 +38,6 @@ move_addons_into_dir:
 	/bin/bash -c "find ${root_path}/client_modules -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 
 run_sonar_scanner:
-	sonar-scanner -Dproject.settings=sonar-project.properties
+	sonar-scanner -Dproject.settings=sonar-project.properties -X
 
 .PHONY: create_venv install_deps flake8 flake8_all pylint pylint_all make_addons_dir move_addons_into_dir
