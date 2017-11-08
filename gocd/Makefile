@@ -36,6 +36,9 @@ move_addons_into_dir:
 	/bin/bash -c "find ${root_path}/nhclinical -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/openeobs -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
 	/bin/bash -c "find ${root_path}/client_modules -maxdepth 1 -type d ! -regex '\.\/\..*' -not -name \".\" -exec cp -r {}  ${root_path}/liveobs_addons \;"
+	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/nhclinical"
+	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/openeobs"
+	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/client_modules"
 
 run_sonar_scanner:
 	sonar-scanner -Dproject.settings=sonar-project.properties -X
