@@ -6,9 +6,9 @@ set -x
 # Otherwise just use the existing BRANCH environment variable.
 if [[ -z "${BRANCH}" ]]
   then
-	NHCLINICAL_BRANCH=$(echo $GO_SCM_FEATURE_LIVEOBS_NHCLINICAL_PR_BRANCH | sed 's/NeovaHealth://')
-	OPENEOBS_BRANCH=$(echo $GO_SCM_FEATURE_LIVEOBS_OPENEOBS_PR_BRANCH | sed 's/NeovaHealth://')
-	CLIENT_BRANCH=$(echo $GO_SCM_FEATURE_LIVEOBS_CLIENT_MODULES_PR_BRANCH | sed 's/bjss://')
+	NHCLINICAL_BRANCH=$(echo $GO_SCM_NHCLINICAL_PR_BRANCH | sed 's/NeovaHealth://')
+	OPENEOBS_BRANCH=$(echo $GO_SCM_OPEN_EOBS_PR_BRANCH | sed 's/NeovaHealth://')
+	CLIENT_BRANCH=$(echo $GO_SCM_CLIENT_MODULES_PR_BRANCH | sed 's/bjss://')
 
 	NHCLINICAL_HASH=$GO_SCM_FEATURE_LIVEOBS_NHCLINICAL_LABEL
 	NHCLINICAL_DATE=$(git --git-dir=../nhclinical/.git show "${NHCLINICAL_HASH}" -s --format="%at")
