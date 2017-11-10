@@ -2,6 +2,11 @@
 
 all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
 
+setup: create_venv install_deps
+	bash -c ./checkout_branches.sh
+
+checks: flake8 pylint
+
 create_venv:
 	virtualenv ${root_path}/venv
 
@@ -20,9 +25,6 @@ pylint:
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/nhclinical
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/openeobs
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/BJSS_liveobs_client_modules
-
-checkout_branches:
-	bash -c ./checkout_branches.sh
 
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
