@@ -43,6 +43,7 @@ BASE_BRANCH="develop"
 (cd ../client_modules && \
 	git fetch && \
 	git checkout -f $BRANCH || git checkout $BASE_BRANCH)
+cd ..
 
 VERSION_NAME=$BRANCH
 VERSION_NAME+=_
