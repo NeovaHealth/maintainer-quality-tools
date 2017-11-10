@@ -40,7 +40,7 @@ BASE_BRANCH="develop"
 (cd ../openeobs && \
 	git fetch && \
 	git checkout -f $BRANCH || git checkout $BASE_BRANCH)
-(cd ../BJSS_liveobs_client_modules && \
+(cd ../client_modules && \
 	git fetch && \
 	git checkout -f $BRANCH || git checkout $BASE_BRANCH)
 
