@@ -17,7 +17,7 @@ if [[ -z "${BRANCH}" ]]
 	OPENEOBS_DATE=$(git --git-dir=../openeobs/.git show "${OPENEOBS_HASH}" -s --format="%at")
 
 	CLIENT_HASH=$GO_SCM_FEATURE_LIVEOBS_CLIENT_MODULES_LABEL
-	CLIENT_DATE=$(git --git-dir=../BJSS_liveobs_client_modules/.git show "${CLIENT_HASH}" -s --format="%at")
+	CLIENT_DATE=$(git --git-dir=../client_modules/.git show "${CLIENT_HASH}" -s --format="%at")
 
 	# Need to then compare all 3 hashes. Which one is the latest?
 	if [ ${NHCLINICAL_DATE} -gt ${OPENEOBS_DATE} -a ${NHCLINICAL_DATE} -gt ${CLIENT_DATE} ] ; then
