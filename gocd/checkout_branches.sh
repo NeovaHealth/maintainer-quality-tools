@@ -10,13 +10,13 @@ if [[ -z "${BRANCH}" ]]
 	OPENEOBS_BRANCH=$(echo $GO_SCM_OPEN_EOBS_PR_BRANCH | sed 's/NeovaHealth://')
 	CLIENT_BRANCH=$(echo $GO_SCM_CLIENT_MODULES_PR_BRANCH | sed 's/bjss://')
 
-	NHCLINICAL_HASH=$GO_SCM_FEATURE_LIVEOBS_NHCLINICAL_LABEL
+	NHCLINICAL_HASH=$GO_SCM_NHCLINICAL_LABEL
 	NHCLINICAL_DATE=$(git --git-dir=../nhclinical/.git show "${NHCLINICAL_HASH}" -s --format="%at")
 
-	OPENEOBS_HASH=$GO_SCM_FEATURE_LIVEOBS_OPENEOBS_LABEL
+	OPENEOBS_HASH=$GO_SCM_OPEN_EOBS_LABEL
 	OPENEOBS_DATE=$(git --git-dir=../openeobs/.git show "${OPENEOBS_HASH}" -s --format="%at")
 
-	CLIENT_HASH=$GO_SCM_FEATURE_LIVEOBS_CLIENT_MODULES_LABEL
+	CLIENT_HASH=$GO_SCM_CLIENT_MODULES_LABEL
 	CLIENT_DATE=$(git --git-dir=../client_modules/.git show "${CLIENT_HASH}" -s --format="%at")
 
 	# Need to then compare all 3 hashes. Which one is the latest?
