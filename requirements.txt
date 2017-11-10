@@ -10,3 +10,7 @@ isort
 polib
 slumber
 transifex-client
+
+# Makefile requirements
+pylint==1.7.2
+flake8==3.4.1
