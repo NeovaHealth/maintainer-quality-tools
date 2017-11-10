@@ -2,11 +2,6 @@
 
 all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
 
-setup: create_venv install_deps
-	bash -c ./checkout_branches.sh
-
-checks: flake8 pylint
-
 create_venv:
 	virtualenv ${root_path}/venv
 
