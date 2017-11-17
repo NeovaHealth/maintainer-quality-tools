@@ -12,20 +12,10 @@ install_deps:
 	${root_path}/venv/bin/pip install -r ${root_path}/client_modules/requirements.txt
 
 flake8:
-	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/nhclinical
-	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/openeobs
-	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/client_modules
+	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/liveobs_addons
 
 pylint:
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/nhclinical
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/openeobs
-	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg ${root_path}/client_modules
-
-pylint_all:
 	${root_path}/venv/bin/pylint --load-plugins=pylint_odoo --rcfile=../travis/cfg/travis_run_pylint.cfg -r n --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" ${root_path}/liveobs_addons > ${root_path}/pylint_report.txt
-
-flake8_all:
-	${root_path}/venv/bin/flake8 --config=../travis/cfg/travis_run_flake8.cfg ${root_path}/liveobs_addons
 
 make_addons_dir:
 	mkdir -p ${root_path}/liveobs_addons
@@ -43,4 +33,4 @@ move_addons_into_dir:
 run_sonar_scanner:
 	sonar-scanner -Dproject.settings=sonar-project.properties -X
 
-.PHONY: create_venv install_deps flake8 flake8_all pylint pylint_all make_addons_dir move_addons_into_dir
+.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
