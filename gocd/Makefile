@@ -1,6 +1,6 @@
 #!/usr/bin/make
 
-all: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
+all: create_venv install_deps make_addons_dir move_addons_into_dir flake8 pylint
 
 create_venv:
 	virtualenv ${root_path}/venv
@@ -33,4 +33,4 @@ move_addons_into_dir:
 run_sonar_scanner:
 	sonar-scanner -Dproject.settings=sonar-project.properties -X
 
-.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir
+.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir run_sonar_scanner
