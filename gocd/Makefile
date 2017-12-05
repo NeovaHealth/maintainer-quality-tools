@@ -30,7 +30,10 @@ move_addons_into_dir:
 	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/openeobs"
 	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/BJSS_liveobs_client_modules"
 
+set_sonar_branch:
+	/bin/bash -c "cut -d'_' -f1 <<< cat ${root_path}/version_branch.txt | tr -d '\n' >> sonar-project.properties"
+
 run_sonar_scanner:
 	sonar-scanner -Dproject.settings=sonar-project.properties -X
 
-.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir run_sonar_scanner
+.PHONY: create_venv install_deps flake8 pylint make_addons_dir move_addons_into_dir set_sonar_branch run_sonar_scanner
