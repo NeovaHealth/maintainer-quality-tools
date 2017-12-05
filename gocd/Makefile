@@ -31,7 +31,7 @@ move_addons_into_dir:
 	/bin/bash -c "rm -rf ${root_path}/liveobs_addons/BJSS_liveobs_client_modules"
 
 set_sonar_branch:
-	/bin/bash -c "cut -d'_' -f1 <<< cat ${root_path}/version_branch.txt | tr -d '\n' >> sonar-project.properties"
+	/bin/bash -c "echo sonar-branch=$(cut -d'_' -f1 <<< cat ${root_path}/version_branch.txt | tr -d '\n') >> sonar-project.properties"
 
 run_sonar_scanner:
 	sonar-scanner -Dproject.settings=sonar-project.properties -X
