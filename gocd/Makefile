@@ -33,7 +33,7 @@ move_addons_into_dir:
 set_sonar_branch:
 	# Split the value in version_branch.txt on the '_' character into an array and use the first part (which is the branch name) to append the sonar-branch
 	# property to the sonar-project.properties file. This will allow for branches to be used in SonarQube
-	@echo sonar.branch=$(shell echo `cut -d'_' -f1 <<< cat ../../liveobs-docker/docker/liveobs/version_branch.txt | tr -d '\n'`) >> sonar-project.properties
+	@echo $$(/bin/bash -c "echo sonar.branch=`cut -d'_' -f1 <../../liveobs-docker/docker/liveobs/version_branch.txt | tr -d '\n'` >> sonar-project.properties")
 	/bin/bash -c "cat sonar-project.properties"
 
 run_sonar_scanner:
